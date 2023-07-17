@@ -1,0 +1,33 @@
+host:
+  ip: 192.0.2.1
+  port: 8080
+
+protocols:
+  - name: bgp
+    neighbors:
+      - name: internal
+        entries:
+        - ip: 203.0.113.1
+          asn: 65000
+        - ip: 203.0.113.2
+          asn: 65000
+      - name: external
+        entries:
+        - ip: 198.51.0.11
+          asn: 65001
+        - ip: 198.51.0.21
+          asn: 65002
+      # invalid entry
+      #- name: invalid
+
+  - name: ospfv2
+    interfaces:
+      - name: swp1
+      - name: swp2
+      - name: vlan101
+      # invalid interface
+      #- name: swap42
+
+  # invalid protocol
+  #- name: ospfv42
+
